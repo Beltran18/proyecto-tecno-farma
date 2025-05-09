@@ -1,0 +1,45 @@
+.registro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #eaf6ff, #a8dfff);
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+  }
+  
+  .titulo {
+    font-size: 1.8rem;
+    border: 2px solid #333;
+    border-radius: 20px;
+    padding: 5px 20px;
+    margin-top: 10px;
+  }
+  
+  .subtitulo {
+    font-size: 1.4rem;
+    margin-top: 15px;
+  }
+  
+  .formulario {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .formulario input[type="text"],
+  .formulario input[type="email"],
+  .formulario input[type="password"] {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    width: 250px;
+  }
+  
+  .genero {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
