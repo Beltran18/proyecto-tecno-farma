@@ -1,0 +1,99 @@
+.soporte-container {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #cfe8ff, #e6f2ff);
+  position: relative;
+  padding: 2rem;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Píldoras */
+.decoracion {
+  position: absolute;
+  width: 120px;
+  bottom: 10px;
+}
+
+.izquierda {
+  left: 10px;
+}
+
+.derecha {
+  right: 10px;
+}
+
+/* Encabezado superior */
+.encabezado-superior {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.btn-lateral {
+  background-color: #d9eefe;
+  border: 2px solid #7aaae3;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+}
+
+/* Iconos de campana, usuario, símbolo médico */
+.iconos-superiores {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 1.4rem;
+  display: flex;
+  gap: 1.2rem;
+}
+
+/* Título central */
+.titulo {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+/* Contenido del soporte */
+.contenido-soporte {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Botón principal */
+.btn-principal {
+  background-color: #d9eefe;
+  border: 2px solid #7aaae3;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.mensajes-chat {
+  display: grid;
+  grid-template-columns: repeat(1, auto); /* ✅ 2 columnas automáticas */
+  gap: 1rem 2rem;
+  justify-content: center;
+}
+
+.mensajes-chat button {
+  background-color: #e1f0ff;
+  border: 2px solid #7aaae3;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  width: 200px; /* Opcional: tamaño uniforme */
+}
+
+

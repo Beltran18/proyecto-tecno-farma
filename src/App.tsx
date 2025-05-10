@@ -1,20 +1,20 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Login from './components/login.tsx'
-import Register from './components/register.tsx'
-import Dashboard from './components/dashboard.tsx';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Dashboard from './components/dashboard';
+import Login from './components/login';
+import Register from './components/register';
+import Soporte from './components/soporte'; // 👈
 
 function App() {
   return (
-    <div style={{ height: "100%" }}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
-      </Router>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/soporte" element={<Soporte />} /> {/* 👈 */}
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

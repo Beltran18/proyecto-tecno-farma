@@ -1,7 +1,10 @@
 import React from 'react';
 import './dashboard.css';
+import { useNavigate } from 'react-router-dom'; // 👈 Importa esto
 
 const Dashboard: React.FC = () => {
+  const navigate = useNavigate(); // 👈 Hook para redireccionar
+
   return (
     <div className="dashboard-container">
       <img src="/pildoras-izq.png" alt="decoración izquierda" className="decoracion izquierda" />
@@ -9,7 +12,7 @@ const Dashboard: React.FC = () => {
 
       <div className="dashboard-header">
         <div className="menu-izquierdo">
-          <button className="btn-secundario">📘 Soporte</button>
+          <button className="btn-secundario" onClick={() => navigate('/soporte')}>📘 Soporte</button>
           <button className="btn-secundario">📄 Manual de Uso</button>
         </div>
 
@@ -47,3 +50,4 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
+
