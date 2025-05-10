@@ -1,0 +1,49 @@
+import React from 'react';
+import './dashboard.css';
+
+const Dashboard: React.FC = () => {
+  return (
+    <div className="dashboard-container">
+      <img src="/pildoras-izq.png" alt="decoración izquierda" className="decoracion izquierda" />
+      <img src="/pildoras-der.png" alt="decoración derecha" className="decoracion derecha" />
+
+      <div className="dashboard-header">
+        <div className="menu-izquierdo">
+          <button className="btn-secundario">📘 Soporte</button>
+          <button className="btn-secundario">📄 Manual de Uso</button>
+        </div>
+
+        <div className="saludo">
+          <h2>Buenas Tardes!,</h2>
+          <h3>Administrador</h3>
+        </div>
+
+        <div className="iconos-superiores">
+          <span>🔔</span>
+          <span>👤</span>
+          <span>⚕️</span>
+        </div>
+      </div>
+
+      <div className="dashboard-botones">
+        <div className="columna">
+          <button>🔍 Buscar Producto</button>
+          <button>📦 Productos Disponibles</button>
+          <button>⏳ Próximos a vencer</button>
+          <button>🏭 Proveedores</button>
+          <button>📊 Reportes</button>
+          <button>📁 Producto</button>
+        </div>
+        <div className="columna">
+          <button>📜 Historial</button>
+          <button>🚚 Envíos</button>
+          <button>📝 Solicitar Envíos</button>
+          <button>➕ Añadir producto</button>
+          <button>💳 Facturación</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Dashboard;

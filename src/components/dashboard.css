@@ -1,0 +1,83 @@
+.dashboard-container {
+  background: linear-gradient(to bottom right, #e0f0ff, #d0eaff);
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  position: relative;
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.decoracion {
+  position: absolute;
+  width: 100px;
+  bottom: 0;
+}
+
+.izquierda {
+  left: 0;
+}
+
+.derecha {
+  right: 0;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 30px;
+}
+
+.menu-izquierdo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-secundario {
+  background-color: #cce5ff;
+  border: 2px solid #333;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.saludo {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.iconos-superiores {
+  display: flex;
+  gap: 15px;
+  font-size: 24px;
+}
+
+.dashboard-botones {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 40px;
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.columna button {
+  background-color: #cce5ff;
+  border: 2px solid #333;
+  border-radius: 20px;
+  padding: 10px 25px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
