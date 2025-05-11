@@ -1,0 +1,77 @@
+.anadir-container {
+  background: linear-gradient(to bottom right, #e6f0ff, #b3d9ff);
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  position: relative;
+}
+
+.decoracion {
+  position: absolute;
+  width: 100px;
+  bottom: 0;
+}
+
+.izquierda {
+  left: 0;
+}
+
+.derecha {
+  right: 0;
+}
+
+.anadir-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-secundario {
+  background-color: #d6eaff;
+  border: 2px solid #2a6ebb;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.iconos-superiores span {
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+.titulo {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 28px;
+}
+
+.formulario {
+  max-width: 600px;
+  margin: 40px auto;
+  display: grid;
+  gap: 20px;
+}
+
+.grupo {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+
+input, select {
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.btn-agregar {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  width: 150px;
+  margin: 0 auto;
+}

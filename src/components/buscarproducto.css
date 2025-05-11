@@ -1,0 +1,150 @@
+/* Establece que todo el contenido ocupe toda la ventana */
+html, body, .buscar-container {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Fondo degradado de la página */
+.buscar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: linear-gradient(to bottom, #e0f0ff, #c1e0ff);
+  position: relative;
+  padding: 1.5rem;
+}
+
+/* Elementos decorativos */
+.decoracion {
+  position: absolute;
+  width: 100px;
+  bottom: 0;
+  z-index: 0;
+}
+
+.izquierda {
+  left: 0;
+}
+
+.derecha {
+  right: 0;
+}
+
+/* Encabezado superior */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.iconos-superiores {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.6rem;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 1.5rem 0 1rem 0;
+  z-index: 1;
+}
+
+/* Contenido principal centrado */
+.contenido {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Caja de calendario */
+.calendario {
+  background: white;
+  border: 2px solid #a87aff;
+  border-radius: 12px;
+  width: 280px;
+  padding-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calendario-header {
+  height: 50px;
+  background-color: red;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.calendario-body {
+  text-align: center;
+  padding: 1rem;
+}
+
+.calendario-body p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.calendario-body .icono {
+  width: 50px;
+  margin-bottom: 1rem;
+}
+
+.btn-calendario {
+  display: block;
+  margin: 0.5rem auto;
+  padding: 0.5rem 1rem;
+  background: #dbe9ff;
+  border: 1px solid #333;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+input[type="date"] {
+  display: block;
+  margin: 1rem auto 0;
+  padding: 0.4rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+/* Formulario de búsqueda */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.formulario label {
+  background: #e8f3ff;
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  min-width: 250px;
+}
+
+.btn-buscar {
+  background: #4ea0ff;
+  border: none;
+  color: white;
+  padding: 0.6rem 2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn-buscar:hover {
+  background: #1f78d1;
+}
+
