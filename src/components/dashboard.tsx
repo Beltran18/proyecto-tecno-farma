@@ -31,7 +31,7 @@ const Dashboard: React.FC = () => {
       <div className="dashboard-botones">
         <div className="columna">
           <button>🔍 Buscar Producto</button>
-          <button>📦 Productos Disponibles</button>
+          <button onClick={() => navigate('/productos')}>📦 Productos Disponibles</button> {/* <- actualización */}
           <button>⏳ Próximos a vencer</button>
           <button>🏭 Proveedores</button>
           <button>📊 Reportes</button>
@@ -50,5 +50,4 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
-
 

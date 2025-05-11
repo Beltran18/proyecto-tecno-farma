@@ -1,0 +1,64 @@
+.productos-container {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(#e0f0ff, #b0d4ff);
+  position: relative;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.decoracion {
+  position: absolute;
+  width: 80px;
+  bottom: 0;
+}
+
+.izquierda {
+  left: 0;
+}
+
+.derecha {
+  right: 0;
+}
+
+.productos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.iconos-superiores span {
+  margin-left: 15px;
+  font-size: 1.5rem;
+}
+h2 {
+margin-top: 40px;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  margin-top: 2rem;
+}
+
+.producto-icono {
+  font-size: 3rem;
+  padding: 1rem;
+}
+
+.producto-icono.seleccionado {
+  border: 2px solid purple;
+  border-radius: 10px;
+}
+
+.producto-nombre {
+  margin-top: 0.5rem;
+}
+
+.acciones-productos {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
