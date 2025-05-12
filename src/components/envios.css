@@ -1,0 +1,99 @@
+.envios-container {
+  width: 100vw;
+  height: 100vh;
+  background: url('/fondo.png') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.decoracion {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  bottom: 10px;
+}
+
+.izquierda {
+  left: 10px;
+}
+
+.derecha {
+  right: 10px;
+}
+
+.menu-lateral {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.btn-envio {
+  padding: 10px 20px;
+  background-color: #cce5ff;
+  border: 2px solid #333;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.contenido-envios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.encabezado-envios {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 30px;
+  align-items: center;
+}
+
+.encabezado-envios h2 {
+  font-size: 28px;
+}
+
+.iconos span {
+  font-size: 24px;
+  margin-left: 15px;
+}
+
+.botones-envios {
+  margin: 20px 0;
+}
+
+.boton-grande {
+  padding: 15px 30px;
+  font-size: 16px;
+  background-color: #cce5ff;
+  border: 2px solid #000;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+.envios-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.fila-envio {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icono-casa, .icono-caja {
+  width: 50px;
+  height: auto;
+}
+
+.linea-punteada {
+  flex-grow: 1;
+  height: 3px;
+  border-bottom: 3px dotted #000;
+}

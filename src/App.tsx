@@ -13,6 +13,7 @@ import Facturacion from './components/facturacion';
 import Historial from './components/historial';
 import Proveedores from './components/proveedores'; 
 import Vencimientos from './components/vencimientos'; 
+import Envios from './components/envios';
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
         <Route path="/historial" element={<Historial />} />
         <Route path="/proveedores" element={<Proveedores />} />
         <Route path="/vencimientos" element={<Vencimientos />} />
+        <Route path="/envios" element={<Envios />} />
+        
       </Routes>
     </Router>
   );
