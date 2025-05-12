@@ -1,7 +1,7 @@
 .envios-container {
   width: 100vw;
   height: 100vh;
-  background: url('/fondo.png') no-repeat center center fixed;
+  background: linear-gradient(to bottom, #e0f0ff, #c1e0ff);
   background-size: cover;
   position: relative;
   font-family: Arial, sans-serif;
