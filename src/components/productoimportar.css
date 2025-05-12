@@ -1,0 +1,120 @@
+.producto-importar-container {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to right, #c7e6fb, #f3f9fd);
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.decoracion.izquierda {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  height: 100px;
+}
+
+.decoracion.derecha {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 100px;
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.btn-volver {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.iconos-superiores span {
+  font-size: 24px;
+  margin-left: 15px;
+}
+
+.contenido-producto {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 40px;
+}
+
+.panel-izquierdo {
+  width: 45%;
+}
+
+.panel-izquierdo .btn-seleccionado {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 20px;
+  background-color: #dceeff;
+  border: 2px solid #1d4ed8;
+  margin-bottom: 20px;
+}
+
+.panel-izquierdo table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.panel-izquierdo th,
+.panel-izquierdo td {
+  padding: 10px;
+  text-align: center;
+}
+
+.panel-derecho {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.panel-derecho .btn-principal {
+  background-color: #a9d5f7;
+  border: 2px solid #333;
+  border-radius: 20px;
+  padding: 10px 25px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.panel-derecho button {
+  margin: 8px 0;
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 1px solid #333;
+  background-color: white;
+  cursor: pointer;
+}
+
+.botones-finales {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.btn-cancelar {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+}
+
+.btn-aceptar {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+}

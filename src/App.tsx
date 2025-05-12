@@ -5,8 +5,9 @@ import Dashboard from './components/dashboard';
 import Soporte from './components/soporte';
 import ManualUso from './components/manualuso';
 import ProductosDisponibles from './components/productosdisponibles';
-import AñadirProducto from './components/addproduct'; // nueva importación
-import BuscarProducto from './components/buscarproducto'; // nueva importación
+import AñadirProducto from './components/addproduct';
+import BuscarProducto from './components/buscarproducto';
+import ProductoImportar from './components/productoimportar'; // ✅ NUEVA IMPORTACIÓN
 
 function App() {
   return (
@@ -21,12 +22,14 @@ function App() {
         <Route path="/productos" element={<ProductosDisponibles />} />
         <Route path="/añadir-producto" element={<AñadirProducto />} />
         <Route path="/buscar-producto" element={<BuscarProducto />} />
+        <Route path="/producto-importar" element={<ProductoImportar />} /> {/* ✅ NUEVA RUTA */}
       </Routes>
     </Router>
   );
 }
 
 export default App;
+
 
 
 
