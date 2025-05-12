@@ -34,15 +34,16 @@ const Dashboard: React.FC = () => {
           <button onClick={() => navigate('/productos')}>📦 Productos Disponibles</button>
           <button>⏳ Próximos a vencer</button>
           <button>🏭 Proveedores</button>
-          <button>📊 Reportes</button>
+          <button onClick={() => navigate('/reportes')}>📊 Reportes</button>
           <button onClick={() => navigate('/producto-importar')}>📁 Producto</button> {/* ✅ ACTUALIZADO */}
         </div>
         <div className="columna">
-          <button>📜 Historial</button>
+          <button onClick={() => navigate('/historial')}>📜 Historial</button>
           <button>🚚 Envíos</button>
           <button>📝 Solicitar Envíos</button>
           <button onClick={() => navigate('/añadir-producto')}>➕ Añadir producto</button>
-          <button>💳 Facturación</button>
+          <button onClick={() => navigate('/facturacion')}>🧾 Facturación</button>
+
         </div>
       </div>
     </div>

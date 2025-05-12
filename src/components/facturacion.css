@@ -1,0 +1,90 @@
+.facturacion-container {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #dbefff, #e3f2fd);
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.decoracion {
+  position: absolute;
+  bottom: 0;
+  width: 120px;
+}
+
+.decoracion.izquierda {
+  left: 0;
+}
+
+.decoracion.derecha {
+  right: 0;
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.btn-menu {
+  background: none;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.iconos span {
+  font-size: 24px;
+  margin-left: 15px;
+}
+
+.sub-menu {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+}
+
+.btn-submenu {
+  background-color: #b3e5fc;
+  border: 2px solid #000;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-submenu.activo {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.opciones {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.opcion {
+  text-align: center;
+}
+
+.opcion img {
+  width: 70px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.btn-opcion {
+  background-color: #e3f2fd;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
