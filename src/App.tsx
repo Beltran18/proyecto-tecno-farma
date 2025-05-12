@@ -11,6 +11,7 @@ import ProductoImportar from './components/productoimportar'; // ✅ NUEVA IMPOR
 import Reportes from './components/reportes';
 import Facturacion from './components/facturacion';
 import Historial from './components/historial';
+import Proveedores from './components/proveedores'; 
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/reportes" element={<Reportes />} />
         <Route path="/facturacion" element={<Facturacion />} />
         <Route path="/historial" element={<Historial />} />
+        <Route path="/proveedores" element={<Proveedores />} />
       </Routes>
     </Router>
   );
