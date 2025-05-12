@@ -14,6 +14,7 @@ import Historial from './components/historial';
 import Proveedores from './components/proveedores'; 
 import Vencimientos from './components/vencimientos'; 
 import Envios from './components/envios';
+import SolicitarEnvios from './components/solicitarenvios';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/proveedores" element={<Proveedores />} />
         <Route path="/vencimientos" element={<Vencimientos />} />
         <Route path="/envios" element={<Envios />} />
+        <Route path="/solicitar-envios" element={<SolicitarEnvios />} />
         
       </Routes>
     </Router>

@@ -1,0 +1,105 @@
+.solicitar-envios-container {
+  width: 100vw;
+  height: 100vh;
+  background: url('/fondo.png') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-icons {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+}
+
+.icon {
+  font-size: 24px;
+  margin-left: 15px;
+}
+
+.titulo-principal {
+  margin-top: 40px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.menu-lateral {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.btn-azul {
+  background-color: #d6eaff;
+  padding: 10px 25px;
+  border-radius: 20px;
+  border: 2px solid #000;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn-seleccionar {
+  margin-top: 30px;
+  background-color: #d6eaff;
+  padding: 10px 40px;
+  border-radius: 25px;
+  border: 2px solid #000;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.seccion-central {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.contenedor-productos {
+  width: 500px;
+  height: 350px;
+  background-color: #e6f2ff;
+  border-radius: 30px;
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+.contenedor-productos img {
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+}
+
+.btn-rojo {
+  margin-top: 30px;
+  background-color: #ff4d4d;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.decoracion {
+  position: absolute;
+  width: 80px;
+  height: auto;
+  bottom: 20px;
+}
+
+.izquierda {
+  left: 10px;
+}
+
+.derecha {
+  right: 10px;
+}
