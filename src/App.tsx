@@ -12,6 +12,7 @@ import Reportes from './components/reportes';
 import Facturacion from './components/facturacion';
 import Historial from './components/historial';
 import Proveedores from './components/proveedores'; 
+import Vencimientos from './components/vencimientos'; 
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/facturacion" element={<Facturacion />} />
         <Route path="/historial" element={<Historial />} />
         <Route path="/proveedores" element={<Proveedores />} />
+        <Route path="/vencimientos" element={<Vencimientos />} />
       </Routes>
     </Router>
   );

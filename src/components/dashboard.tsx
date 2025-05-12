@@ -32,7 +32,7 @@ const Dashboard: React.FC = () => {
         <div className="columna">
           <button onClick={() => navigate('/buscar-producto')}>🔍 Buscar Producto</button>
           <button onClick={() => navigate('/productos')}>📦 Productos Disponibles</button>
-          <button>⏳ Próximos a vencer</button>
+          <button onClick={() => navigate('/vencimientos')}>🕒 Próximos a vencer</button>
           <button onClick={() => navigate('/proveedores')}>🏭 Proveedores</button>
           <button onClick={() => navigate('/reportes')}>📊 Reportes</button>
           <button onClick={() => navigate('/producto-importar')}>📁 Producto</button> {/* ✅ ACTUALIZADO */}
