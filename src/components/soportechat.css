@@ -1,0 +1,77 @@
+.chat-container {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to bottom, #e6f0ff, #b3d9ff);
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.decoracion {
+  position: absolute;
+  bottom: 0;
+  width: 100px;
+}
+
+.izquierda {
+  left: 0;
+}
+
+.derecha {
+  right: 0;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-secundario {
+  background-color: #cce6ff;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.iconos-superiores span {
+  margin: 0 10px;
+  font-size: 24px;
+}
+
+.chat-cuerpo {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-primario {
+  padding: 10px 30px;
+  border: 2px solid #000;
+  border-radius: 25px;
+  font-weight: bold;
+  background-color: #e0f2ff;
+}
+
+textarea {
+  width: 400px;
+  height: 120px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #000;
+  border-radius: 25px;
+  resize: none;
+  text-align: center;
+}
+
+.btn-enviar {
+  padding: 10px 40px;
+  background-color: #cce6ff;
+  border: 2px solid #000;
+  border-radius: 25px;
+  font-weight: bold;
+}
+

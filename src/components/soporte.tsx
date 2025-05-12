@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import './soporte.css';
 
 const Soporte: React.FC = () => {
+  const navigate = useNavigate(); 
+
   return (
     <div className="soporte-container">
       {/* Decoración de píldoras */}
@@ -23,7 +26,9 @@ const Soporte: React.FC = () => {
 
       {/* Botones de soporte */}
       <div className="contenido-soporte">
-        <button className="btn-principal">Solicitar Ayuda Vía Chat</button>
+        <button onClick={() => navigate('/soporte-chat')} className="btn-chat">
+          Solicitar Ayuda Vía Chat
+        </button>
 
         <div className="mensajes-chat">
           <button>👨‍⚕️ Hola. ¿En qué podemos ayudarte?</button>
@@ -38,4 +43,6 @@ const Soporte: React.FC = () => {
 };
 
 export default Soporte;
+
+
 

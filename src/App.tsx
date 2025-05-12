@@ -15,6 +15,7 @@ import Proveedores from './components/proveedores';
 import Vencimientos from './components/vencimientos'; 
 import Envios from './components/envios';
 import SolicitarEnvios from './components/solicitarenvios';
+import SoporteChat from './components/soportechat';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/vencimientos" element={<Vencimientos />} />
         <Route path="/envios" element={<Envios />} />
         <Route path="/solicitar-envios" element={<SolicitarEnvios />} />
+        <Route path="/soporte-chat" element={<SoporteChat />} />
         
       </Routes>
     </Router>
