@@ -1,57 +1,84 @@
+:root {
+  --primary-color: #0d47a1;
+  --secondary-color: #64b5f6;
+  --text-color: #333;
+  --background-color: #f0f4f8;
+  --card-background: rgba(255, 255, 255, 0.95);
+  --border-radius: 15px;
+  --transition: all 0.3s ease;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .login-container {
   position: relative;
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(to bottom right, #e6f2ff, #a0d8ef);
+  background: linear-gradient(135deg, #0d47a1, #64b5f6, #a0d8ef);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   text-align: center;
-}
-.logo-superior {
-  position: absolute;
-  top: 20px;
-  left: 40px;
-  width: 60px;
+  padding: 2rem;
 }
 
 .titulo-principal {
-  background: #cce5ff;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
   display: inline-block;
-  padding: 0.5rem 2rem;
-  border-radius: 25px;
-  border: 2px solid black;
-  font-family: monospace;
+  padding: 1rem 2.5rem;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--primary-color);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
 }
 
 .login-card {
-  background: transparent;
-  padding: 2rem;
-  border-radius: 1rem;
+  background: var(--card-background);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
   max-width: 400px;
   width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 .input-group {
   display: flex;
   align-items: center;
-  background: black;
-  border-radius: 20px;
-  margin: 1rem 0;
-  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  margin: 1.2rem 0;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.input-group:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--primary-color);
 }
 
 .input-group .icon {
-  color: #bfaeff;
-  margin-right: 0.5rem;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-right: 0.8rem;
 }
 
 .input-group input {
@@ -59,38 +86,43 @@ html, body {
   border: none;
   outline: none;
   background: transparent;
-  color: white;
+  color: var(--text-color);
+  font-size: 1rem;
+  padding: 0.5rem;
 }
 
 .btn-ingresar {
-  background: black;
+  background: var(--primary-color);
   color: white;
-  padding: 0.6rem 2rem;
+  padding: 1rem 2rem;
   border: none;
-  border-radius: 20px;
+  border-radius: var(--border-radius);
   cursor: pointer;
-  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: var(--transition);
+  margin-top: 1.5rem;
+}
+
+.btn-ingresar:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
 }
 
 .registro {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
 }
 
 .registro a {
-  color: #6c63ff;
+  color: var(--primary-color);
   text-decoration: none;
+  font-weight: bold;
+  transition: var(--transition);
 }
 
-.decoracion {
-  position: absolute;
-  width: 90px;
-  bottom: 20px;
-}
-
-.izquierda {
-  left: 20px;
-}
-
-.derecha {
-  right: 20px;
+.registro a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
 }

@@ -1,45 +1,157 @@
-.registro-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to bottom, #eaf6ff, #a8dfff);
-    height: 100vh;
-    width: 100vw;
-    padding: 20px;
-  }
-  
-  .titulo {
-    font-size: 1.8rem;
-    border: 2px solid #333;
-    border-radius: 20px;
-    padding: 5px 20px;
-    margin-top: 10px;
-  }
-  
-  .subtitulo {
-    font-size: 1.4rem;
-    margin-top: 15px;
-  }
-  
-  .formulario {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .formulario input[type="text"],
-  .formulario input[type="email"],
-  .formulario input[type="password"] {
-    padding: 10px;
-    border-radius: 20px;
-    border: none;
-    width: 250px;
-  }
-  
-  .genero {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
+.register-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #0d47a1, #64b5f6, #a0d8ef);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.titulo-principal {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--primary-color);
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.register-card {
+  background: var(--card-background);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+.register-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  margin: 1rem 0;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.input-group:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--primary-color);
+}
+
+.input-group .icon {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-right: 0.6rem;
+}
+
+.input-group input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 1rem;
+  padding: 0.4rem;
+}
+
+.gender-group {
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.gender-group h4 {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 0.8rem;
+}
+
+.gender-options {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.gender-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.gender-options label:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.gender-options input[type="radio"] {
+  width: 14px;
+  height: 14px;
+}
+
+.gender-options .icon {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+
+.btn-ingresar {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: var(--transition);
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.btn-ingresar:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.registro {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.registro a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.registro a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}

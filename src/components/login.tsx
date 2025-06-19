@@ -6,15 +6,11 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    // Aquí podrías validar el usuario y contraseña
-    // Por ahora solo redirigimos
     navigate('/dashboard');
   };
 
   return (
     <div className="login-container">
-      <img src="/logo-medicina.png" alt="logo" className="logo-superior" />
-
       <div className="login-card">
         <h2 className="titulo-principal">Tecno–Farma</h2>
         <h3>Iniciar Sesion</h3>
@@ -35,9 +31,6 @@ const Login: React.FC = () => {
           ¿No tienes cuenta? <Link to="/register">Regístrate Aquí</Link>
         </p>
       </div>
-
-      <img src="/pildoras-izq.png" alt="decoración izquierda" className="decoracion izquierda" />
-      <img src="/pildoras-der.png" alt="decoración derecha" className="decoracion derecha" />
     </div>
   );
 };
