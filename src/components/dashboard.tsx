@@ -57,15 +57,11 @@ const Dashboard: React.FC = () => {
         </div>
 
         <div className="saludo">
-          <h2>¡Buenas tardes!</h2>
+          <h2>¡Bienvenido!</h2>
           <h3>Administrador</h3>
         </div>
 
-        <div className="iconos-superiores">
-          <span>🔔</span>
-          <span>👤</span>
-          <span>⚕️</span>
-        </div>
+
       </div>
 
       <div className="menu-container">
