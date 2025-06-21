@@ -9,6 +9,7 @@ const ProductosDisponibles: React.FC<ProductosDisponiblesProps> = () => {
   const [showForm, setShowForm] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Producto | undefined>(undefined);
   const [productos, setProductos] = useState<Producto[]>([]);
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<string>('todas');
 
   useEffect(() => {
     // Load products from localStorage
@@ -45,6 +46,10 @@ const ProductosDisponibles: React.FC<ProductosDisponiblesProps> = () => {
       localStorage.setItem('productos', JSON.stringify(initialProducts));
     }
   }, []);
+
+  const productosFiltrados = categoriaSeleccionada === 'todas' ? productos : productos.filter(producto => producto.categoria === categoriaSeleccionada);
+
+  const categorias = [...new Set(productos.map(producto => producto.categoria))];
 
   const handleDeleteProduct = (id: number) => {
     const updatedProducts = productos.filter(product => product.id !== id);
@@ -94,14 +99,33 @@ const ProductosDisponibles: React.FC<ProductosDisponiblesProps> = () => {
     <div className="productos-container">
       <div className="dashboard-header">
         <h1>Productos Disponibles</h1>
-        <button className="btn-agregar" onClick={handleAddProduct}>
-          Añadir Producto
-        </button>
+        <div className="filtros">
+          <select 
+            value={categoriaSeleccionada}
+            onChange={(e) => setCategoriaSeleccionada(e.target.value)}
+            className="filtro-categoria"
+          >
+            <option value="todas">Todas las categorías</option>
+            {categorias.map((categoria) => (
+              <option key={categoria} value={categoria}>{categoria}</option>
+            ))}
+          </select>
+          <button className="btn-agregar" onClick={handleAddProduct}>
+            Añadir Producto
+          </button>
+        </div>
       </div>
 
       <div className="productos-grid">
-        {productos.map((product) => (
+        {productosFiltrados.map((product) => (
           <div key={product.id} className="producto-card">
+            <div className="categoria-badge" style={{
+              backgroundColor: product.categoria === 'medicamentos' ? '#4CAF50' :
+                             product.categoria === 'suplementos' ? '#2196F3' :
+                             '#9C27B0'
+            }}>
+              {product.categoria}
+            </div>
             <h2>{product.nombre}</h2>
             <p className="descripcion">{product.descripcion}</p>
             <p className="precio">${product.precio.toFixed(2)}</p>
