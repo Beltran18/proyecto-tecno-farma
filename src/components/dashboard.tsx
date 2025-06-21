@@ -9,7 +9,6 @@ const menuItems = [
       { icon: '🔍', text: 'Buscar Producto', path: '/buscar-producto' },
       { icon: '💊', text: 'Productos Disponibles', path: '/productos' },
       { icon: '⏰', text: 'Próximos a vencer', path: '/vencimientos' },
-      { icon: '📥', text: 'Importar Producto', path: '/producto-importar' },
       { icon: '➕', text: 'Añadir producto', path: '/añadir-producto' }
     ]
   },

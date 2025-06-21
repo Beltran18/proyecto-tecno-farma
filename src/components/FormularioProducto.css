@@ -1,0 +1,251 @@
+.formulario-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0.1rem;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 0.3px 0.3px rgba(0, 0, 0, 0.03);
+}
+
+.form-header {
+  margin-bottom: 0.1rem;
+  padding-bottom: 0.1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.form-header h2 {
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.form-section {
+  background: #f8f9fa;
+  padding: 0.1rem;
+  border-radius: 2px;
+  border: 1px solid #e0e0e0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.1rem;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.1rem;
+  margin-top: 0.1rem;
+  padding-top: 0.1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+label {
+  font-weight: 600;
+  color: #444;
+  font-size: 0.7rem;
+  line-height: 1.1;
+}
+
+input,
+select,
+textarea {
+  padding: 0.15rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  font-size: 0.7rem;
+  background: white;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2px rgba(0, 123, 255, 0.1);
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.08rem;
+  background: white;
+  border-radius: 2px;
+  padding: 0.1rem;
+}
+
+.currency-symbol {
+  font-weight: bold;
+  color: #666;
+  padding: 0 0.05rem;
+  font-size: 0.7rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.15rem 0.3rem;
+  border: none;
+  border-radius: 2px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 50px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-0.2px);
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  transform: translateY(-0.2px);
+}
+
+textarea {
+  min-height: 30px;
+  resize: vertical;
+  width: 100%;
+  font-size: 0.7rem;
+}
+
+.form-group textarea {
+  height: 80px;
+  resize: vertical;
+  min-height: 60px;
+  max-height: 120px;
+  padding: 0.7rem;
+  font-family: inherit;
+}
+
+.form-group select {
+  background-color: white;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 1rem;
+  padding-right: 2rem;
+}
+
+.required-field {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: flex-end;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #f8f9fa;
+  color: #333;
+  border: 1px solid #e0e0e0;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #e9ecef;
+  border-color: #dcdcdc;
+}
+
+.btn-primary {
+  background: #4CAF50;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #45a049;
+}
+
+.btn-secondary {
+  background: #f44336;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #da190b;
+}
