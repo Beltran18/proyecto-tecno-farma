@@ -8,8 +8,7 @@ const menuItems = [
     items: [
       { icon: '🔍', text: 'Buscar Producto', path: '/buscar-producto' },
       { icon: '💊', text: 'Productos Disponibles', path: '/productos' },
-      { icon: '⏰', text: 'Próximos a vencer', path: '/vencimientos' },
-      { icon: '➕', text: 'Añadir producto', path: '/añadir-producto' }
+      { icon: '⏰', text: 'Próximos a vencer', path: '/vencimientos' }
     ]
   },
   {

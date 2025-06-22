@@ -67,6 +67,10 @@ const ProductosDisponibles: React.FC<ProductosDisponiblesProps> = () => {
     setEditingProduct(undefined);
   };
 
+  const handleBack = () => {
+    window.location.href = '/dashboard';
+  };
+
   const handleFormClose = () => {
     setShowForm(false);
     setEditingProduct(undefined);
@@ -115,6 +119,9 @@ const ProductosDisponibles: React.FC<ProductosDisponiblesProps> = () => {
           </button>
         </div>
       </div>
+      <button className="btn-volver" onClick={handleBack}>
+        Volver al Dashboard
+      </button>
 
       <div className="productos-grid">
         {productosFiltrados.map((product) => (
