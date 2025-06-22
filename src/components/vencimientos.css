@@ -1,81 +1,216 @@
 .vencimientos-container {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(to bottom, #e0f0ff, #c1e0ff);
-  background-size: cover;
+  background: linear-gradient(135deg, #0d47a1, #64b5f6, #a0d8ef);
   position: relative;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.boton-regresar {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 1000;
+}
+
+.boton-regresar button {
+  background: #fff;
+  color: #0d47a1;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.boton-regresar button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background: #f0f7ff;
+}
+
+.boton-regresar button span {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .decoracion {
   position: absolute;
-  width: 100px;
+  width: 120px;
   height: auto;
-  bottom: 10px;
+  bottom: 20px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 .izquierda {
-  left: 10px;
+  left: 20px;
+  animation: floatLeft 5s ease-in-out infinite;
 }
 
 .derecha {
-  right: 10px;
+  right: 20px;
+  animation: floatRight 5s ease-in-out infinite;
 }
 
 .menu-lateral {
   position: absolute;
-  top: 30px;
-  left: 30px;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: flex;
+  gap: 1rem;
 }
 
 .btn-vencimiento {
-  padding: 10px 20px;
-  background-color: #cce5ff;
-  border: 2px solid #333;
-  border-radius: 25px;
-  font-weight: bold;
-  font-size: 14px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #0d47a1, #64b5f6);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(13, 71, 161, 0.2);
+}
+
+.btn-vencimiento:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(13, 71, 161, 0.3);
 }
 
 .contenido-vencimientos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 60px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .encabezado-vencimientos {
   display: flex;
   justify-content: space-between;
-  width: 90%;
-  margin: 30px;
   align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
 }
 
 .encabezado-vencimientos h2 {
-  font-size: 28px;
+  font-size: 24px;
+  color: #0d47a1;
+  margin: 0;
+}
+
+.iconos {
+  display: flex;
+  gap: 1.5rem;
 }
 
 .iconos span {
-  font-size: 24px;
-  margin-left: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+.iconos span:hover {
+  color: #0d47a1;
+  transform: scale(1.1);
+}
+
+.tabla-vencimientos {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .tabla-vencimientos table {
-  width: 70%;
-  border-collapse: collapse;
-  margin-top: 40px;
-  font-size: 18px;
-  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
-.tabla-vencimientos th, .tabla-vencimientos td {
-  border: 2px solid #000;
-  padding: 15px;
-  text-align: center;
+.dias-restantes {
+  font-weight: bold;
+  color: #f44336;
+  font-size: 0.9em;
+}
+
+.dias-restantes.critico {
+  color: #d32f2f;
+}
+
+.dias-restantes.alerta {
+  color: #ff9800;
+}
+
+.dias-restantes.normal {
+  color: #4CAF50;
+}
+
+.tabla-vencimientos th {
+  background: linear-gradient(135deg, rgba(13, 71, 161, 0.1), rgba(100, 181, 246, 0.1));
+  color: #333;
+  font-weight: 600;
+  padding: 1.2rem;
+  text-align: left;
+  border-bottom: 2px solid rgba(13, 71, 161, 0.1);
+}
+
+.tabla-vencimientos td {
+  padding: 1.2rem;
+  border-bottom: 1px solid rgba(13, 71, 161, 0.05);
+  transition: all 0.3s ease;
+}
+
+.tabla-vencimientos tr:hover td {
+  background: rgba(13, 71, 161, 0.03);
 }
 
 .tabla-vencimientos img {
-  width: 50px;
+  width: 60px;
   height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Animaciones */
+@keyframes floatLeft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes floatRight {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tabla-vencimientos {
+    overflow-x: auto;
+  }
+  
+  .tabla-vencimientos table {
+    min-width: 600px;
+  }
 }

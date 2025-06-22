@@ -15,7 +15,9 @@ const FormularioProducto: React.FC<FormularioProductoProps> = ({ onSubmit, onClo
     precio: initialData?.precio || 0,
     stock: initialData?.stock || 0,
     categoria: initialData?.categoria || '',
-    imagen: initialData?.imagen || ''
+    imagen: initialData?.imagen || '',
+    lote: initialData?.lote || '',
+    fechaVencimiento: initialData?.fechaVencimiento || ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -90,6 +92,26 @@ const FormularioProducto: React.FC<FormularioProductoProps> = ({ onSubmit, onClo
               </div>
             </div>
             <div className="form-column">
+              <div className="form-group">
+                <label>Lote *</label>
+                <input
+                  type="text"
+                  name="lote"
+                  value={formData.lote}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Fecha de vencimiento *</label>
+                <input
+                  type="date"
+                  name="fechaVencimiento"
+                  value={formData.fechaVencimiento}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
               <div className="form-group">
                 <label>Descripción</label>
                 <textarea

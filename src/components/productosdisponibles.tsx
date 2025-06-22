@@ -31,7 +31,9 @@ const ProductosDisponibles: React.FC<ProductosDisponiblesProps> = () => {
           descripcion: "Antiinflamatorio y analgésico",
           precio: 15.99,
           stock: 100,
-          categoria: "medicamentos"
+          categoria: "medicamentos",
+          lote: "LOT123",
+          fechaVencimiento: "2025-12-31"
         },
         {
           id: 2,
@@ -39,7 +41,9 @@ const ProductosDisponibles: React.FC<ProductosDisponiblesProps> = () => {
           descripcion: "Suplemento vitamínico",
           precio: 29.99,
           stock: 50,
-          categoria: "suplementos"
+          categoria: "suplementos",
+          lote: "LOT456",
+          fechaVencimiento: "2026-06-30"
         }
       ];
       setProductos(initialProducts);
@@ -137,6 +141,8 @@ const ProductosDisponibles: React.FC<ProductosDisponiblesProps> = () => {
             <p className="descripcion">{product.descripcion}</p>
             <p className="precio">${product.precio.toFixed(2)}</p>
             <p className="stock">Stock: {product.stock}</p>
+            <p className="lote">Lote: {product.lote}</p>
+            <p className="fecha-vencimiento">Fecha vencimiento: {new Date(product.fechaVencimiento).toLocaleDateString()}</p>
             <div className="acciones">
               <button className="btn-edit" onClick={() => handleEditClick(product)}>
                 Editar

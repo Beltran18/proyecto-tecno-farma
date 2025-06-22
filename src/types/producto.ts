@@ -6,6 +6,8 @@ export interface Producto {
   stock: number;
   categoria: string;
   imagen?: string;
+  lote: string;
+  fechaVencimiento: string;
 }
 
 export interface ProductoFormData {
@@ -15,4 +17,6 @@ export interface ProductoFormData {
   stock: string;
   categoria: string;
   imagen?: File;
+  lote: string;
+  fechaVencimiento: string;
 }

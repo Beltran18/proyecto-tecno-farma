@@ -4,11 +4,52 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #0d47a1, #64b5f6, #a0d8ef);
   padding: 2rem 0;
-  overflow-x: hidden;
-  position: relative;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100vw;
+  height: 100vh;
   margin: 0;
   color: #333;
+  z-index: 1000;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-scrollbar { display: none; }
+}
+
+.dashboard-container::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+  width: 0px;
+  height: 0px;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-scrollbar { display: none; }
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
 }
 
 .dashboard-container::before {
