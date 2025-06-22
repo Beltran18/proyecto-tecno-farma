@@ -43,6 +43,13 @@ const BuscarProducto: React.FC = () => {
     setShowResults(false);
     setProductos([]);
     setSearchTerm('');
+    navigate('/dashboard');
+  };
+
+  const handleBuscarOtro = () => {
+    setShowResults(false);
+    setProductos([]);
+    setSearchTerm('');
   };
 
   return (
@@ -70,8 +77,7 @@ const BuscarProducto: React.FC = () => {
                   placeholder="Ingrese el nombre o categoría del producto"
                 />
                 <button className="btn-close" onClick={handleBack}>
-                  <span className="btn-icon">🔄</span>
-                  <span className="btn-text">Volver a Buscar</span>
+                  <span className="btn-icon">❌</span>
                 </button>
               </div>
             </div>
@@ -107,9 +113,9 @@ const BuscarProducto: React.FC = () => {
                 <div className="results-header">
                   <h2>Resultados de búsqueda</h2>
                   <div className="header-actions">
-                    <button className="btn-dashboard" onClick={() => navigate('/dashboard')}>
-                      <span className="btn-icon">🏠</span>
-                      <span className="btn-text">Volver al Dashboard</span>
+                    <button className="btn-dashboard" onClick={handleBuscarOtro}>
+                      <span className="btn-icon">➕</span>
+                      <span className="btn-text">Buscar Otro Producto</span>
                     </button>
                   </div>
                 </div>

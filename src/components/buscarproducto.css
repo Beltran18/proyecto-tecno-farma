@@ -93,11 +93,27 @@ html, body {
 .btn-close {
   background: none;
   border: none;
-  color: var(--text-secondary);
+  color: var(--text-color);
   cursor: pointer;
   padding: 0.5rem;
   font-size: 1.2rem;
   transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-close:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn-close .btn-icon {
+  font-size: 1.5rem;
 }
 
 .btn-close:hover {
