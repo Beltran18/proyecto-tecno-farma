@@ -15,15 +15,20 @@ const menuItems = [
     title: 'Gestión de Envíos',
     items: [
       { icon: '📦', text: 'Envíos', path: '/envios' },
-      { icon: '🚚', text: 'Solicitar Envíos', path: '/solicitar-envios' },
-      { icon: '📊', text: 'Reportes', path: '/reportes' }
+      { icon: '🚚', text: 'Solicitar Envíos', path: '/solicitar-envios' }
+    ]
+  },
+  {
+    title: 'Reportes',
+    items: [
+      { icon: '📊', text: 'Reporte Ventas', path: '/reportes/ventas' }
     ]
   },
   {
     title: 'Gestión de Ventas',
     items: [
-      { icon: '📋', text: 'Historial', path: '/historial' },
-      { icon: '💰', text: 'Facturación', path: '/facturacion' }
+      { icon: '💰', text: 'Facturación', path: '/facturacion' },
+      { icon: '🛒', text: 'Ventas', path: '/ventas' }
     ]
   },
   {

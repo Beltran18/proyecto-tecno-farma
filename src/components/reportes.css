@@ -46,33 +46,99 @@
 
 .contenido {
   display: flex;
-  justify-content: space-around;
-  margin-top: 3rem;
-  z-index: 1;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
 }
 
 .seccion {
-  background-color: white;
-  padding: 1rem;
-  border: 2px solid black;
-  border-radius: 10px;
-  width: 40%;
-  text-align: center;
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .seccion h2 {
-  margin-bottom: 1rem;
+  color: #333;
+  margin-bottom: 1.5rem;
 }
 
-table {
+.total-vendidos {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.total-vendidos h3 {
+  color: #007bff;
+  margin: 0;
+}
+
+.tabla-container {
+  max-height: 400px;
+  overflow-y: auto;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tabla-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tabla-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.tabla-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.tabla-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.tabla-ventas {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
-th, td {
-  border: 1px solid black;
-  padding: 0.5rem;
+.tabla-ventas th,
+.tabla-ventas td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabla-ventas th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.tabla-ventas tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.vermas {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
+}
+
+.vermas:hover {
+  background: #0056b3;
 }
 
 .celda-btn {
@@ -80,13 +146,5 @@ th, td {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 20px;
-  cursor: pointer;
-}
-
-.vermas {
-  background-color: #cce5ff;
-  border: 2px solid black;
-  border-radius: 25px;
-  padding: 0.5rem 1.5rem;
   cursor: pointer;
 }
