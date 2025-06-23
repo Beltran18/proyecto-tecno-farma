@@ -12,24 +12,44 @@ const Login: React.FC = () => {
   return (
     <div className="login-container">
       <div className="login-card">
-        <h2 className="titulo-principal">Tecno–Farma</h2>
-        <h3>Iniciar Sesion</h3>
-
-        <div className="input-group">
-          <span className="icon">👤</span>
-          <input type="text" placeholder="Usuario" />
+        <div className="logo-container">
+          <img src="/logo.png" alt="Tecno-Farma" className="logo" />
+          <h2 className="titulo-principal">Tecno–Farma</h2>
         </div>
+        <h3>Iniciar Sesión</h3>
 
-        <div className="input-group">
-          <span className="icon">🔒</span>
-          <input type="password" placeholder="Contraseña" />
-        </div>
+        <form className="login-form">
+          <div className="input-group">
+            <div className="icon-container">
+              <span className="icon">👤</span>
+            </div>
+            <input type="text" placeholder="Usuario" className="input-field" />
+          </div>
 
-        <button className="btn-ingresar" onClick={handleLogin}>Ingresar</button>
+          <div className="input-group">
+            <div className="icon-container">
+              <span className="icon">🔒</span>
+            </div>
+            <input type="password" placeholder="Contraseña" className="input-field" />
+          </div>
 
-        <p className="registro">
-          ¿No tienes cuenta? <Link to="/register">Regístrate Aquí</Link>
-        </p>
+          <div className="remember-forgot">
+            <label className="remember-me">
+              <input type="checkbox" />
+              <span>Recordarme</span>
+            </label>
+            <Link to="/forgot-password" className="forgot-password">¿Olvidaste tu contraseña?</Link>
+          </div>
+
+          <button type="submit" className="btn-ingresar" onClick={handleLogin}>
+            <span className="button-text">Ingresar</span>
+            <span className="button-icon">→</span>
+          </button>
+
+          <p className="registro">
+            ¿No tienes cuenta? <Link to="/register">Regístrate Aquí</Link>
+          </p>
+        </form>
       </div>
     </div>
   );

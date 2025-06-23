@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { Link } from 'react-router-dom';
 import './register.css';
 
@@ -7,50 +6,50 @@ export default function Register() {
   return (
     <div className="register-container">
       <div className="register-card">
-        <h2 className="titulo-principal">Tecno–Farma</h2>
+        <div className="logo-container">
+          <img src="/logo.png" alt="Tecno-Farma" className="logo" />
+          <h2 className="titulo-principal">Tecno–Farma</h2>
+        </div>
         <h3>Registro</h3>
 
-        <div className="input-group">
-          <span className="icon">👤</span>
-          <input type="text" placeholder="Usuario" />
-        </div>
+        <form className="register-form">
+          <div className="input-group">
+            <div className="icon-container">
+              <span className="icon">👤</span>
+            </div>
+            <input type="text" placeholder="Nombre de Usuario" className="input-field" required />
+          </div>
 
-        <div className="input-group">
-          <span className="icon">📝</span>
-          <input type="text" placeholder="Apellidos" />
-        </div>
+          <div className="input-group">
+            <div className="icon-container">
+              <span className="icon">📧</span>
+            </div>
+            <input type="email" placeholder="Correo Electrónico" className="input-field" required />
+          </div>
 
-        <div className="input-group">
-          <span className="icon">📧</span>
-          <input type="email" placeholder="Correo Electrónico" />
-        </div>
+          <div className="input-group">
+            <div className="icon-container">
+              <span className="icon">🔒</span>
+            </div>
+            <input type="password" placeholder="Contraseña" className="input-field" required />
+          </div>
 
-        <div className="gender-group">
-          <h4>Sexo</h4>
-          <div className="gender-options">
-            <label>
-              <input type="radio" name="sexo" value="mujer" />
-              <span className="icon">♀️</span>
-              <span>Mujer</span>
-            </label>
-            <label>
-              <input type="radio" name="sexo" value="hombre" />
-              <span className="icon">♂️</span>
-              <span>Hombre</span>
+          <div className="terms-and-conditions">
+            <label className="terms-label">
+              <input type="checkbox" required />
+              <span>Acepto los términos y condiciones</span>
             </label>
           </div>
-        </div>
 
-        <div className="input-group">
-          <span className="icon">🔒</span>
-          <input type="password" placeholder="Contraseña" />
-        </div>
+          <button type="submit" className="btn-ingresar">
+            <span className="button-text">Registrarse</span>
+            <span className="button-icon">→</span>
+          </button>
 
-        <button className="btn-ingresar">Registrarse</button>
-
-        <p className="registro">
-          ¿Ya tienes cuenta? <Link to="/">Iniciar Sesión</Link>
-        </p>
+          <p className="registro">
+            ¿Ya tienes cuenta? <Link to="/">Iniciar Sesión</Link>
+          </p>
+        </form>
       </div>
     </div>
   );

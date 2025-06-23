@@ -96,10 +96,15 @@ const ReportesVentas: React.FC = () => {
                           const ventaIndex = ventas.findIndex(v => v.producto === venta.producto);
                           if (ventaIndex !== -1) {
                             // Borrar la venta
-                            const nuevasVentas = ventas.filter((v: Venta, index: number) => 
-                              index !== ventaIndex
-                            );
-                            
+                            const nuevasVentas = ventas.map((_, index: number) => {
+                              if (index === ventaIndex) {
+                                return {
+                                  ...ventas[index],
+                                  cantidad: ventas[index].cantidad + 1
+                                };
+                              }
+                              return ventas[index];
+                            });
                             setVentas(nuevasVentas);
                             localStorage.setItem('ventas', JSON.stringify(nuevasVentas));
                           }
