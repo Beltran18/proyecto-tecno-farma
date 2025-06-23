@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './reportes.css';
 
@@ -15,8 +15,23 @@ const ReportesVentas: React.FC = () => {
     navigate('/dashboard');
   };
 
-  // Obtener ventas del localStorage
-  const ventas: Venta[] = JSON.parse(localStorage.getItem('ventas') || '[]');
+  // Estado para las ventas
+  const [ventas, setVentas] = useState<Venta[]>(() => 
+    JSON.parse(localStorage.getItem('ventas') || '[]')
+  );
+
+  // Cargar ventas al montar
+  useEffect(() => {
+    const savedVentas = JSON.parse(localStorage.getItem('ventas') || '[]') as Venta[];
+    if (Array.isArray(savedVentas)) {
+      setVentas(savedVentas);
+    }
+  }, []);
+
+  // Actualizar localStorage cuando las ventas cambien
+  useEffect(() => {
+    localStorage.setItem('ventas', JSON.stringify(ventas));
+  }, [ventas]);
   
   // Calcular estadísticas
   const productosVentas = ventas.reduce((acc: Record<string, number>, venta: Venta) => {
@@ -80,12 +95,18 @@ const ReportesVentas: React.FC = () => {
                         onClick={() => {
                           const ventaIndex = ventas.findIndex(v => v.producto === venta.producto);
                           if (ventaIndex !== -1) {
-                            navigate(`/ventas?edit=true&id=${ventaIndex}&producto=${venta.producto}&cantidad=${venta.cantidad}`);
+                            // Borrar la venta
+                            const nuevasVentas = ventas.filter((v: Venta, index: number) => 
+                              index !== ventaIndex
+                            );
+                            
+                            setVentas(nuevasVentas);
+                            localStorage.setItem('ventas', JSON.stringify(nuevasVentas));
                           }
                         }}
-                        className="btn-editar"
+                        className="btn-borrar"
                       >
-                        📝 Editar
+                        🗑️ Borrar
                       </button>
                     </td>
                   </tr>

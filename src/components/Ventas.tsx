@@ -14,6 +14,7 @@ const Ventas: React.FC = () => {
   const [cantidad, setCantidad] = useState<number>(1);
   const [editandoVenta, setEditandoVenta] = useState<{ id: number; producto: string; cantidad: number } | null>(null);
   const [ventas, setVentas] = useState<Venta[]>([]);
+  const [previewVenta, setPreviewVenta] = useState<{ producto: string; cantidad: number } | null>(null);
 
   // Cargar ventas al montar
   useEffect(() => {
@@ -77,6 +78,16 @@ const Ventas: React.FC = () => {
     // Limpiar selección
     setProducto('');
     setCantidad(1);
+    setPreviewVenta(null);
+  };
+
+  // Manejar la previsualización
+  const handlePreview = () => {
+    if (previewVenta) {
+      setProducto(previewVenta.producto);
+      setCantidad(previewVenta.cantidad);
+      setPreviewVenta(null);
+    }
   };
 
   return (
@@ -122,13 +133,35 @@ const Ventas: React.FC = () => {
                 />
               </div>
             </div>
-            <button
-              onClick={handleVenta}
-              className="btn-venta"
-              disabled={!producto || cantidad < 1}
-            >
-              {editandoVenta ? 'Actualizar Venta' : 'Registrar Venta'}
-            </button>
+            <div className="venta-actions">
+              <button
+                onClick={() => setPreviewVenta({ producto, cantidad })}
+                className="btn-preview"
+                disabled={!producto || cantidad < 1}
+              >
+                📝 Previsualizar
+              </button>
+              <button
+                onClick={handleVenta}
+                className="btn-venta"
+                disabled={!producto || cantidad < 1}
+              >
+                {editandoVenta ? 'Actualizar Venta' : 'Registrar Venta'}
+              </button>
+            </div>
+            {previewVenta && (
+              <div className="preview-venta">
+                <h3>Previsualización de Venta</h3>
+                <p>Producto: {previewVenta.producto}</p>
+                <p>Cantidad: {previewVenta.cantidad}</p>
+                <button
+                  onClick={handlePreview}
+                  className="btn-preview"
+                >
+                  ✅ Usar estos datos
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
