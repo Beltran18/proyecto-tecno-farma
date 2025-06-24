@@ -70,8 +70,6 @@ const Proveedores: React.FC = () => {
 
   return (
     <div className="proveedores-container">
-      <img src="/pildoras-izq.png" className="decoracion izquierda" alt="decoración izquierda" />
-      <img src="/pildoras-der.png" className="decoracion derecha" alt="decoración derecha" />
 
       <div className="boton-regresar">
         <button onClick={handleBack}>
@@ -82,11 +80,6 @@ const Proveedores: React.FC = () => {
       <div className="contenido-proveedores">
         <div className="encabezado-proveedores">
           <h2>Proveedores</h2>
-          <div className="iconos">
-            <span>🔔</span>
-            <span>👤</span>
-            <span>⚕️</span>
-          </div>
         </div>
 
         <div className="acciones-proveedores">
@@ -100,7 +93,6 @@ const Proveedores: React.FC = () => {
             <thead>
               <tr>
                 <th>Nombre</th>
-                <th>RF</th>
                 <th>Teléfono</th>
                 <th>Email</th>
                 <th>Productos</th>
@@ -111,7 +103,6 @@ const Proveedores: React.FC = () => {
               {state.proveedores.map(proveedor => (
                 <tr key={proveedor.id}>
                   <td>{proveedor.nombre}</td>
-                  <td>{proveedor.rfc}</td>
                   <td>{proveedor.telefono}</td>
                   <td>{proveedor.email}</td>
                   <td>

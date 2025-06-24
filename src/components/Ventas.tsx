@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ventas.css';
 
 interface Venta {
@@ -8,6 +9,7 @@ interface Venta {
 }
 
 const Ventas: React.FC = () => {
+  const navigate = useNavigate();
   const [producto, setProducto] = useState<string>('');
   const [cantidad, setCantidad] = useState<number>(1);
   const [editandoVenta, setEditandoVenta] = useState<{ id: number; producto: string; cantidad: number } | null>(null);
@@ -95,7 +97,9 @@ const Ventas: React.FC = () => {
 
       <div className="header">
         <div className="menu">
-          <button className="btn-principal">🛒 Ventas</button>
+          <button className="btn-principal" onClick={() => navigate('/dashboard')}>
+            🏠 Dashboard
+          </button>
         </div>
         <h1>Registro de Ventas</h1>
         <div className="iconos">

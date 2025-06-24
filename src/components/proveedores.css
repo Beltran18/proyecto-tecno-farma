@@ -1,26 +1,13 @@
 .proveedores-container {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(to bottom, #e0f0ff, #c1e0ff);
+  background: linear-gradient(135deg, #0d47a1, #64b5f6, #a0d8ef);
   background-size: cover;
   position: relative;
   font-family: Arial, sans-serif;
 }
 
-.decoracion {
-  position: absolute;
-  width: 100px;
-  height: auto;
-  bottom: 10px;
-}
 
-.izquierda {
-  left: 10px;
-}
-
-.derecha {
-  right: 10px;
-}
 
 .menu-lateral {
   position: absolute;

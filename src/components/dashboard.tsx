@@ -14,7 +14,6 @@ const menuItems = [
   {
     title: 'Gestión de Envíos',
     items: [
-      { icon: '📦', text: 'Envíos', path: '/envios' },
       { icon: '🚚', text: 'Solicitar Envíos', path: '/solicitar-envios' }
     ]
   },
