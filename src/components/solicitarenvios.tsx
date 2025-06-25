@@ -2,255 +2,214 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './solicitarEnvios.css';
 
-interface Pedido {
+interface Proveedor {
   id: number;
-  proveedor: string;
-  productos: { nombre: string; cantidad: number }[];
-  fecha: string;
-  estado: 'pendiente' | 'en proceso' | 'completado';
+  nombre: string;
+  telefono: string;
+  email: string;
+  direccion: string;
+  productos: string[];
 }
 
-interface PedidoEditState {
-  id: number | null;
-  proveedor: string;
-  productos: { nombre: string; cantidad: number }[];
+interface Envio {
+  id: number;
+  proveedorId: number;
+  producto: string;
+  cantidad: number;
+  fecha: string;
+  estado: 'pendiente' | 'en_proceso' | 'entregado';
 }
 
 const SolicitarEnvios: React.FC = () => {
   const navigate = useNavigate();
-  const [proveedores, setProveedores] = useState<any[]>([]);
-  const [productos, setProductos] = useState<any[]>([]);
-  const [selectedProveedor, setSelectedProveedor] = useState<string>('');
-  const [selectedProductos, setSelectedProductos] = useState<{ nombre: string; cantidad: number }[]>([]);
-  const [pedidos, setPedidos] = useState<Pedido[]>([]);
-  const [editingPedido, setEditingPedido] = useState<PedidoEditState | null>(null);
-  const [searchId, setSearchId] = useState<string>('');
+  // Obtener proveedores del localStorage
+  const [proveedores, setProveedores] = useState<Proveedor[]>([]);
+  const [envios, setEnvios] = useState<Envio[]>(() => 
+    JSON.parse(localStorage.getItem('envios') || '[]')
+  );
 
+  // Estado para el nuevo envío
+  const [proveedorSeleccionado, setProveedorSeleccionado] = useState<number | null>(null);
+  const [productoSeleccionado, setProductoSeleccionado] = useState<string>('');
+  const [cantidad, setCantidad] = useState<number>(0);
+  const [productosDisponibles, setProductosDisponibles] = useState<string[]>([]);
+  const [error, setError] = useState<string>('');
+
+  // Cargar proveedores al montar el componente
   useEffect(() => {
-    const savedProveedores = JSON.parse(localStorage.getItem('proveedores') || '[]');
-    setProveedores(savedProveedores);
-
-    const savedProductos = JSON.parse(localStorage.getItem('productos') || '[]');
-    setProductos(savedProductos);
-
-    const savedPedidos = JSON.parse(localStorage.getItem('pedidos') || '[]');
-    setPedidos(savedPedidos);
+    const storedProveedores = JSON.parse(localStorage.getItem('proveedores') || '[]');
+    setProveedores(storedProveedores);
   }, []);
 
-  const handleBack = () => {
-    navigate('/dashboard');
-  };
+  // Actualizar localStorage cuando los envíos cambien
+  useEffect(() => {
+    localStorage.setItem('envios', JSON.stringify(envios));
+  }, [envios]);
 
-  const handleProveedorChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedProveedor(e.target.value);
-  };
-
-  const handleProductoAdd = (producto: any) => {
-    const existing = selectedProductos.find(p => p.nombre === producto.nombre);
-    if (existing) {
-      const updated = selectedProductos.map(p => 
-        p.nombre === producto.nombre ? { ...p, cantidad: p.cantidad + 1 } : p
-      );
-      setSelectedProductos(updated);
+  // Actualizar productos disponibles cuando se seleccione un proveedor
+  useEffect(() => {
+    if (proveedorSeleccionado) {
+      const proveedor = proveedores.find(p => p.id === proveedorSeleccionado);
+      setProductosDisponibles(proveedor?.productos || []);
     } else {
-      setSelectedProductos([...selectedProductos, { nombre: producto.nombre, cantidad: 1 }]);
+      setProductosDisponibles([]);
     }
-  };
+    setError('');
+  }, [proveedorSeleccionado, proveedores]);
 
-  const handleProductoRemove = (productoNombre: string) => {
-    setSelectedProductos(selectedProductos.filter(p => p.nombre !== productoNombre));
-  };
+  const handleAgregarEnvio = () => {
+    if (!proveedorSeleccionado) {
+      setError('Por favor seleccione un proveedor');
+      return;
+    }
+    if (!productoSeleccionado) {
+      setError('Por favor seleccione un producto');
+      return;
+    }
+    if (cantidad <= 0) {
+      setError('La cantidad debe ser mayor a 0');
+      return;
+    }
 
-  const handlePedidoSubmit = () => {
-    if (!selectedProveedor || selectedProductos.length === 0) return;
-
-    const nuevoPedido: Pedido = {
-      id: pedidos.length + 1,
-      proveedor: selectedProveedor,
-      productos: [...selectedProductos],
+    const nuevoEnvio: Envio = {
+      id: envios.length + 1,
+      proveedorId: proveedorSeleccionado,
+      producto: productoSeleccionado,
+      cantidad: cantidad,
       fecha: new Date().toISOString(),
       estado: 'pendiente'
     };
 
-    setPedidos(prev => [...prev, nuevoPedido]);
-    localStorage.setItem('pedidos', JSON.stringify([...pedidos, nuevoPedido]));
-
-    setSelectedProveedor('');
-    setSelectedProductos([]);
+    setEnvios(prev => [...prev, nuevoEnvio]);
+    setProveedorSeleccionado(null);
+    setProductoSeleccionado('');
+    setCantidad(0);
+    setError('');
   };
 
-  const handleEditPedido = (pedido: Pedido) => {
-    setEditingPedido({
-      id: pedido.id,
-      proveedor: pedido.proveedor,
-      productos: pedido.productos
-    });
-    setSelectedProveedor(pedido.proveedor);
-    setSelectedProductos(pedido.productos);
+  const handleCancelar = () => {
+    setProveedorSeleccionado(null);
+    setProductoSeleccionado('');
+    setCantidad(0);
+    setError('');
   };
 
-  const handleUpdatePedido = () => {
-    if (!editingPedido) return;
-
-    const updatedPedidos = pedidos.map(p =>
-      p.id === editingPedido.id
-        ? {
-            ...p,
-            proveedor: selectedProveedor,
-            productos: selectedProductos
-          }
-        : p
-    );
-
-    setPedidos(updatedPedidos);
-    localStorage.setItem('pedidos', JSON.stringify(updatedPedidos));
-    setEditingPedido(null);
-    setSelectedProveedor('');
-    setSelectedProductos([]);
+  const handleVolver = () => {
+    navigate('/dashboard');
   };
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchId(e.target.value);
-  };
-
-  const filteredPedidos = searchId
-    ? pedidos.filter(p => p.id.toString() === searchId)
-    : pedidos;
 
   return (
     <div className="solicitar-envios-container">
-      <div className="boton-regresar">
-        <button onClick={handleBack}>
-          <span>←</span> Regresar al Dashboard
+      <div className="header-solicitar">
+        <h2>Solicitar Envíos</h2>
+        <button onClick={handleVolver} className="btn-volver">
+          Volver al Dashboard
         </button>
       </div>
 
-      <div className="contenido-solicitar-envios">
-        <h1>Solicitar Envíos</h1>
+      <div className="formulario-envio">
+        <div className="form-group">
+          <label>Proveedor:</label>
+          <select
+            value={proveedorSeleccionado || ''}
+            onChange={(e) => setProveedorSeleccionado(parseInt(e.target.value) || null)}
+            className="select-proveedor"
+          >
+            <option value="">Seleccionar proveedor...</option>
+            {proveedores.map(proveedor => (
+              <option key={proveedor.id} value={proveedor.id}>
+                {proveedor.nombre}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <div className="formulario-solicitud">
-          <div className="seccion-form">
-            <label htmlFor="proveedor">Proveedor:</label>
+        {proveedorSeleccionado && (
+          <div className="form-group">
+            <label>Producto:</label>
             <select
-              id="proveedor"
-              value={selectedProveedor}
-              onChange={handleProveedorChange}
-              className="input-select"
+              value={productoSeleccionado}
+              onChange={(e) => setProductoSeleccionado(e.target.value)}
+              className="select-producto"
             >
-              <option value="">Selecciona un proveedor</option>
-              {proveedores.map(proveedor => (
-                <option key={proveedor.id} value={proveedor.nombre}>
-                  {proveedor.nombre}
+              <option value="">Seleccionar producto...</option>
+              {productosDisponibles.map(producto => (
+                <option key={producto} value={producto}>
+                  {producto}
                 </option>
               ))}
             </select>
           </div>
+        )}
 
-          <div className="seccion-form">
-            <label>Productos:</label>
-            <div className="productos-seleccionados">
-              {selectedProductos.map((producto, index) => (
-                <div key={index} className="producto-seleccionado">
-                  <span>{producto.nombre} (x{producto.cantidad})</span>
-                  <button
-                    onClick={() => handleProductoRemove(producto.nombre)}
-                    className="btn-remove"
-                  >
-                    ❌
-                  </button>
-                </div>
-              ))}
-            </div>
-            <div className="contenedor-productos">
-              {productos.map(producto => (
-                <button
-                  key={producto.id}
-                  onClick={() => handleProductoAdd(producto)}
-                  className="btn-producto"
-                >
-                  {producto.nombre}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="acciones-form">
-            {editingPedido ? (
-              <>
-                <button
-                  onClick={handleUpdatePedido}
-                  className="btn-enviar"
-                  disabled={!selectedProveedor || selectedProductos.length === 0}
-                >
-                  Actualizar Pedido
-                </button>
-                <button
-                  onClick={() => {
-                    setEditingPedido(null);
-                    setSelectedProveedor('');
-                    setSelectedProductos([]);
-                  }}
-                  className="btn-cancelar"
-                >
-                  Cancelar
-                </button>
-              </>
-            ) : (
-              <button
-                onClick={handlePedidoSubmit}
-                className="btn-enviar"
-                disabled={!selectedProveedor || selectedProductos.length === 0}
-              >
-                Solicitar Pedido
-              </button>
-            )}
-          </div>
-        </div>
-
-        <div className="tabla-pedidos">
-          <h2>Historial de Pedidos</h2>
-          <div className="buscador">
+        {proveedorSeleccionado && productoSeleccionado && (
+          <div className="form-group">
+            <label>Cantidad:</label>
             <input
-              type="text"
-              placeholder="Buscar por ID de pedido..."
-              value={searchId}
-              onChange={handleSearchChange}
-              className="input-buscar"
+              type="number"
+              value={cantidad}
+              onChange={(e) => setCantidad(parseInt(e.target.value) || 0)}
+              min="1"
+              className="input-cantidad"
             />
           </div>
+        )}
+
+        <div className="error-message {error ? 'show' : ''}">
+          {error}
+        </div>
+
+        <div className="botones-form">
+          {proveedorSeleccionado && productoSeleccionado && cantidad > 0 ? (
+            <>
+              <button
+                onClick={handleAgregarEnvio}
+                className="btn-agregar"
+              >
+                Solicitar Envío
+              </button>
+              <button
+                onClick={handleCancelar}
+                className="btn-cancelar"
+              >
+                Cancelar
+              </button>
+            </>
+          ) : (
+            <button
+              disabled
+              className="btn-agregar"
+            >
+              Solicitar Envío
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div className="lista-envios">
+        <h3>Envíos Pendientes</h3>
+        <div className="tabla-envios">
           <table>
             <thead>
               <tr>
-                <th>ID</th>
                 <th>Proveedor</th>
-                <th>Productos</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
                 <th>Fecha</th>
                 <th>Estado</th>
-                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
-              {filteredPedidos.map((pedido: Pedido) => (
-                <tr key={pedido.id}>
-                  <td>{pedido.id}</td>
-                  <td>{pedido.proveedor}</td>
+              {envios.map(envio => (
+                <tr key={envio.id}>
                   <td>
-                    {pedido.productos.map((prod: { nombre: string; cantidad: number }, index: number) => (
-                      <span key={index}>
-                        {prod.nombre} (x{prod.cantidad})
-                        {index < pedido.productos.length - 1 ? ', ' : ''}
-                      </span>
-                    ))}
+                    {proveedores.find(p => p.id === envio.proveedorId)?.nombre || 'Proveedor no encontrado'}
                   </td>
-                  <td>{new Date(pedido.fecha).toLocaleDateString()}</td>
-                  <td>{pedido.estado}</td>
-                  <td>
-                    <button
-                      onClick={() => handleEditPedido(pedido)}
-                      className="btn-editar"
-                    >
-                      📝
-                    </button>
+                  <td>{envio.producto}</td>
+                  <td>{envio.cantidad}</td>
+                  <td>{new Date(envio.fecha).toLocaleDateString()}</td>
+                  <td className={`estado-${envio.estado}`}>
+                    {envio.estado.replace('_', ' ').toUpperCase()}
                   </td>
                 </tr>
               ))}

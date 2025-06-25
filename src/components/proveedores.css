@@ -1,144 +1,198 @@
 .proveedores-container {
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(135deg, #0d47a1, #64b5f6, #a0d8ef);
-  background-size: cover;
-  position: relative;
-  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  min-height: 100vh;
 }
 
-
-
-.menu-lateral {
-  position: absolute;
-  top: 30px;
-  left: 30px;
+.header-proveedores {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.btn-proveedores {
-  padding: 10px 20px;
-  background-color: #cce5ff;
-  border: 2px solid #333;
-  border-radius: 25px;
+.btn-volver {
+  padding: 8px 16px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.btn-volver:hover {
+  background-color: #5a6268;
+}
+
+.formulario-proveedor, .lista-proveedores, .seccion-asignar-productos {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.formulario-proveedor h3, .lista-proveedores h3, .seccion-asignar-productos h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
   font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.acciones-proveedor {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-agregar {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.btn-agregar:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.btn-editar {
+  background-color: #2196F3;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
   font-size: 14px;
 }
 
-.contenido-proveedores {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 60px;
-}
-
-.encabezado-proveedores {
-  display: flex;
-  margin: 30px;
-  justify-content: space-between;
-  width: 90%;
-  align-items: center;
-}
-
-.encabezado-proveedores h2 {
-  font-size: 28px;
-}
-
-.iconos span {
-  font-size: 24px;
-  margin-left: 15px;
-}
-
-.acciones-proveedores {
-  margin: 2rem 0;
-  text-align: right;
-}
-
-.acciones-proveedores button {
-  background: #1976D2;
+.btn-guardar {
+  background-color: #4CAF50;
   color: white;
+  padding: 10px 20px;
   border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.btn-cancelar {
+  background-color: #607d8b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-guardar:disabled,
+.btn-agregar:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.botones-form {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.acciones-proveedores button:hover {
-  background: #1565C0;
-  transform: translateY(-2px);
-}
-
-.acciones-proveedores button span {
-  font-size: 1.2rem;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 .tabla-proveedores {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  margin-top: 2rem;
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 20px;
 }
 
 .tabla-proveedores table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-}
-
-.productos-proveedor {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.producto-proveedor {
-  background: #f0f7ff;
-  padding: 0.3rem 0.8rem;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  color: #1976D2;
-}
-
-.acciones {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.btn-edit {
-  background: #4CAF50;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-edit:hover {
-  background: #45a049;
-}
-
-.btn-delete {
-  background: #f44336;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-delete:hover {
-  background: #d32f2f;
+  border-collapse: collapse;
+  margin-top: 10px;
 }
 
 .tabla-proveedores th, .tabla-proveedores td {
-  border: 2px solid #000;
-  padding: 15px;
-  text-align: center;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabla-proveedores th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.tabla-proveedores tr:hover {
+  background-color: #f5f5f5;
+}
+
+.btn-eliminar {
+  background-color: #dc3545;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-editar:hover {
+  background-color: #218838;
+}
+
+.btn-eliminar:hover {
+  background-color: #c82333;
+}
+
+.productos-asignados {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #6c757d;
+  font-size: 14px;
+  position: relative;
+}
+
+.productos-tooltip {
+  cursor: help;
+}
+
+.productos-tooltip:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  background-color: #333;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+  white-space: normal;
+  max-width: 300px;
+  z-index: 1000;
 }

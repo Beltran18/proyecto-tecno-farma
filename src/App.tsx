@@ -11,11 +11,9 @@ import Reportes from './components/reportes';
 import ReportesVentas from './components/ReportesVentas';
 import Ventas from './components/Ventas';
 import Facturacion from './components/facturacion';
-
-import Proveedores from './components/proveedores'; 
-import Vencimientos from './components/vencimientos'; 
-import Envios from './components/envios';
-import SolicitarEnvios from './components/solicitarenvios';
+import Vencimientos from './components/vencimientos';
+import SolicitarEnvios from './components/solicitarEnvios';
+import Proveedores from './components/proveedores';
 import SoporteChat from './components/soportechat';
 
 function App() {
@@ -31,25 +29,17 @@ function App() {
         <Route path="/productos" element={<ProductosDisponibles />} />
         <Route path="/añadir-producto" element={<AñadirProducto />} />
         <Route path="/buscar-producto" element={<BuscarProducto />} />
-
         <Route path="/reportes" element={<Reportes />} />
         <Route path="/reportes/ventas" element={<ReportesVentas />} />
         <Route path="/ventas" element={<Ventas />} />
         <Route path="/facturacion" element={<Facturacion />} />
-
-        <Route path="/proveedores" element={<Proveedores />} />
         <Route path="/vencimientos" element={<Vencimientos />} />
-        <Route path="/envios" element={<Envios />} />
         <Route path="/solicitar-envios" element={<SolicitarEnvios />} />
+        <Route path="/proveedores" element={<Proveedores />} />
         <Route path="/soporte-chat" element={<SoporteChat />} />
-        
       </Routes>
     </Router>
   );
 }
 
 export default App;
-
-
-
-

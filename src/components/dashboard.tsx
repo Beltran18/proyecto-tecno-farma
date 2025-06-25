@@ -12,12 +12,6 @@ const menuItems = [
     ]
   },
   {
-    title: 'Gestión de Envíos',
-    items: [
-      { icon: '🚚', text: 'Solicitar Envíos', path: '/solicitar-envios' }
-    ]
-  },
-  {
     title: 'Reportes',
     items: [
       { icon: '📊', text: 'Reporte Ventas', path: '/reportes/ventas' }
@@ -31,11 +25,18 @@ const menuItems = [
     ]
   },
   {
-    title: 'Gestión de Proveedores',
+    title: 'Solicitar Envíos',
     items: [
-      { icon: '🏢', text: 'Proveedores', path: '/proveedores' }
+      { icon: '🚚', text: 'Solicitar Envío', path: '/solicitar-envios' }
     ]
-  }
+  },
+  {
+    title: 'Proveedores',
+    items: [
+      { icon: '🏢', text: 'Gestión de Proveedores', path: '/proveedores' }
+    ]
+  },
+
 ];
 
 const Dashboard: React.FC = () => {

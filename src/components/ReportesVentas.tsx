@@ -82,7 +82,6 @@ const ReportesVentas: React.FC = () => {
                 <tr>
                   <th>Producto</th>
                   <th>Cantidad Vendida</th>
-                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -90,30 +89,6 @@ const ReportesVentas: React.FC = () => {
                   <tr key={index}>
                     <td>{venta.producto}</td>
                     <td>{venta.cantidad}</td>
-                    <td>
-                      <button
-                        onClick={() => {
-                          const ventaIndex = ventas.findIndex(v => v.producto === venta.producto);
-                          if (ventaIndex !== -1) {
-                            // Borrar la venta
-                            const nuevasVentas = ventas.map((_, index: number) => {
-                              if (index === ventaIndex) {
-                                return {
-                                  ...ventas[index],
-                                  cantidad: ventas[index].cantidad + 1
-                                };
-                              }
-                              return ventas[index];
-                            });
-                            setVentas(nuevasVentas);
-                            localStorage.setItem('ventas', JSON.stringify(nuevasVentas));
-                          }
-                        }}
-                        className="btn-borrar"
-                      >
-                        🗑️ Borrar
-                      </button>
-                    </td>
                   </tr>
                 ))}
               </tbody>
