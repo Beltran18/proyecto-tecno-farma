@@ -1,5 +1,4 @@
 import React from 'react';
-import './reportes.css';
 
 const Reportes: React.FC = () => {
   return (
@@ -7,15 +6,35 @@ const Reportes: React.FC = () => {
       <img src="/pildoras-izq.png" alt="izquierda" className="decoracion izquierda" />
       <img src="/pildoras-der.png" alt="derecha" className="decoracion derecha" />
 
-      <div className="header">
-        <div className="menu">
-          <button className="btn-principal">📊 Reportes</button>
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '1rem',
+        backgroundColor: '#f5f5f5',
+        borderBottom: '1px solid #ddd'
+      }}>
+        <div>
+          <button style={{
+            backgroundColor: '#4CAF50',
+            color: 'white',
+            border: 'none',
+            padding: '0.5rem 1rem',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}>📊 Reportes</button>
         </div>
-        <h1>Reportes</h1>
-        <div className="iconos">
-          <span>🔔</span>
-          <span>👤</span>
-          <span>⚕️</span>
+        <h1 style={{
+          margin: 0,
+          fontSize: '1.5rem'
+        }}>Reportes</h1>
+        <div style={{
+          display: 'flex',
+          gap: '1rem'
+        }}>
+          <span style={{ fontSize: '1.5rem' }}>🔔</span>
+          <span style={{ fontSize: '1.5rem' }}>👤</span>
+          <span style={{ fontSize: '1.5rem' }}>⚕️</span>
         </div>
       </div>
 

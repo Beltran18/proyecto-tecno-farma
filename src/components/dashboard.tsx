@@ -1,100 +1,70 @@
 import React, { useState } from 'react';
 import './dashboard.css';
-import { useNavigate } from 'react-router-dom';
+import Categorias from './categorias';
+import Productos from './productos';
 
 const menuItems = [
   {
-    title: 'Gestión de Productos',
-    items: [
-      { icon: '🔍', text: 'Buscar Producto', path: '/buscar-producto' },
-      { icon: '💊', text: 'Productos Disponibles', path: '/productos' },
-      { icon: '⏰', text: 'Próximos a vencer', path: '/vencimientos' }
-    ]
+    title: 'Categorías',
+    path: 'categorias',
+    icon: '📁'
   },
   {
-    title: 'Reportes',
-    items: [
-      { icon: '📊', text: 'Reporte Ventas', path: '/reportes/ventas' }
-    ]
+    title: 'Productos',
+    path: 'productos',
+    icon: '📦'
   },
   {
-    title: 'Gestión de Ventas',
-    items: [
-      { icon: '💰', text: 'Facturación', path: '/facturacion' },
-      { icon: '🛒', text: 'Ventas', path: '/ventas' }
-    ]
-  },
-  {
-    title: 'Solicitar Envíos',
-    items: [
-      { icon: '🚚', text: 'Solicitar Envío', path: '/solicitar-envios' }
-    ]
-  },
-  {
-    title: 'Proveedores',
-    items: [
-      { icon: '🏢', text: 'Gestión de Proveedores', path: '/proveedores' }
-    ]
-  },
-
+    title: 'Notificaciones',
+    path: 'notificaciones',
+    icon: '🔔'
+  }
 ];
 
 const Dashboard: React.FC = () => {
-  const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const navigate = useNavigate();
+  const [paginaActual, setPaginaActual] = useState<string>('productos');
+  const [menuAbierto, setMenuAbierto] = useState<boolean>(false);
 
-  const handleMenuClick = (menuTitle: string) => {
-    setActiveMenu(activeMenu === menuTitle ? null : menuTitle);
+  const handleMenuClick = (path: string) => {
+    setPaginaActual(path);
+    setMenuAbierto(false);
+  };
+
+  const toggleMenu = () => {
+    setMenuAbierto(!menuAbierto);
   };
 
   return (
     <div className="dashboard-container">
-      <div className="dashboard-header">
-        <div className="menu-izquierdo">
-          <button className="btn-secundario" onClick={() => navigate('/soporte')}>
-            <span>📘</span> Soporte
-          </button>
-          <button className="btn-secundario" onClick={() => navigate('/manual')}>
-            <span>📄</span> Manual de Uso
-          </button>
-        </div>
-
-        <div className="saludo">
-          <h2>¡Bienvenido!</h2>
-          <h3>Administrador</h3>
-        </div>
-
-
+      <div className="menu-toggle" onClick={toggleMenu}>
+        <span className="menu-icon">☰</span>
+        <span className="menu-title">Menú</span>
       </div>
 
-      <div className="menu-container">
+      <div className="menu-lateral" style={{ width: menuAbierto ? '250px' : '60px' }}>
         {menuItems.map((menu, index) => (
-          <div key={index} className="menu-section">
-            <button
-              className={`menu-header ${activeMenu === menu.title ? 'active' : ''}`}
-              onClick={() => handleMenuClick(menu.title)}
-            >
-              <span className="menu-icon">📁</span>
+          <button
+            key={index}
+            className={`menu-item ${paginaActual === menu.path ? 'active' : ''}`}
+            onClick={() => handleMenuClick(menu.path)}
+          >
+            <span className="menu-icon">{menu.icon}</span>
+            <span className={`menu-text ${menuAbierto ? 'visible' : 'hidden'}`}>
               {menu.title}
-              <span className="arrow">▼</span>
-            </button>
-            
-            {activeMenu === menu.title && (
-              <div className="menu-items">
-                {menu.items.map((item, i) => (
-                  <button
-                    key={i}
-                    className="menu-item"
-                    onClick={() => navigate(item.path)}
-                  >
-                    <span className="menu-icon">{item.icon}</span>
-                    {item.text}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+            </span>
+          </button>
         ))}
+      </div>
+
+      <div className="contenido-principal">
+        {paginaActual === 'categorias' && <Categorias />}
+        {paginaActual === 'productos' && <Productos />}
+        {paginaActual === 'notificaciones' && (
+          <div className="notificaciones-container">
+            <h3>Notificaciones</h3>
+            <p>Esta sección mostrará las notificaciones del sistema.</p>
+          </div>
+        )}
       </div>
     </div>
   );
